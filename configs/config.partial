@@ -8,7 +8,7 @@ no shut
 exit
 interface ethernet 0/1.11
 encapsulation dot1Q 11
-ip address 2001:db8:11::1/64
+ipv6 address 2001:db8:11::1/64
 no shut
 exit
 interface ethernet 0/1
