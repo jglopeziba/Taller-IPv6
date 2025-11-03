@@ -3,12 +3,12 @@ ipv6 unicast-routing
 ip routing
 interface ethernet 0/1.10
 encapsulation dot1Q 10
-ip address 10.10.0.1 255.255.255.0
+ipv6 address 2001:db8:10::1/64
 no shut
 exit
-interface ethernet 0/1.20
-encapsulation dot1Q 20
-ip address 10.11.0.1 255.255.255.0
+interface ethernet 0/1.11
+encapsulation dot1Q 11
+ip address 2001:db8:11::1/64
 no shut
 exit
 interface ethernet 0/1
