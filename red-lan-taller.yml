@@ -10,11 +10,12 @@ topology:
       image: docker.io/arthurk99/cisco-iol:17.15.01
       startup-config: configs/config.partial
              
-    switch-arista:
+    switch-cisco:
       kind: arista_ceos
-      image: docker.io/arthurk99/arista-ceos:4.30.2F
-      startup-config: switch/configslaac.conf
-
+      image: docker.io/arthurk99/cisco-iol-l2:17.15.01
+      #startup-config: switch/configslaac.conf
+      type: L2
+ 
     PC1:
       kind: linux # "Alpine Linux v3.12"
       image: ghcr.io/hellt/network-multitool
@@ -69,14 +70,14 @@ topology:
 
 
   links:
-    - endpoints: ["router-cisco:Ethernet0/1","switch-arista:eth1"]
+    - endpoints: ["router-cisco:Ethernet0/1","switch-cisco:Ethernet0/1"]
     - endpoints: ["router-cisco:Ethernet0/2","server-web:eth1"]
-    - endpoints: ["PC1:eth1","switch-arista:eth2"]
+    - endpoints: ["PC1:eth1","switch-cisco:Ethernet0/2"]
       mtu: 1500
-    - endpoints: ["PC2:eth1","switch-arista:eth3"]
+    - endpoints: ["PC2:eth1","switch-cisco:Ethernet0/3"]
       mtu: 1500
-    - endpoints: ["PC3:eth1","switch-arista:eth4"]
+    - endpoints: ["PC3:eth1","switch-cisco:Ethernet1/0"]
       mtu: 1500  
-    - endpoints: ["PC4:eth1","switch-arista:eth5"]
+    - endpoints: ["PC4:eth1","switch-cisco:Ethernet1/1"]
       mtu: 1500
       
