@@ -1,7 +1,5 @@
 name: labtaller
-mgmt:
-  network: lan
-  ipv4-subnet: 172.30.30.0/24
+
 topology:
   nodes:
   
